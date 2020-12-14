@@ -1,0 +1,4 @@
+install: php vendor/vendors.php
+language: php
+php:
+- "7.3"
