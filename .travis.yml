@@ -1,0 +1,23 @@
+language: php
+php:
+  - 7.3
+before_script:
+  - composer update
+  - composer install
+branches:
+  only:
+  - main
+after_success:
+  - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh success $WEBHOOK_URL
+after_failure:
+  - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh failure $WEBHOOK_URL
+deploy:
+  provider: heroku
+  api_key: $HEROKU_API
+  on:
+    branch: main
+  app: integratieopdracht-de-mannen
