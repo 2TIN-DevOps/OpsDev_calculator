@@ -20,3 +20,4 @@ deploy:
   api_key: $HEROKU_API
   on:
     branch: main
+  app: integratieopdracht-de-mannen
