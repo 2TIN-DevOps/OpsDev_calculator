@@ -20,4 +20,4 @@ deploy:
   api_key: 
     secure: $HEROKU_API
   on:
-    branche: main
+    branch: main
